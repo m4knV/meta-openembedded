@@ -12,9 +12,12 @@ SRC_URI = "hg://linuxtv.org/hg;module=dvb-apps;protocol=http \
           file://0003-handle-static-shared-only-build.patch \
           file://0004-Makefile-remove-test.patch \
           file://0005-libucsi-optimization-removal.patch \
+          file://0006-CA_SET_PID.patch \
           "
 
 S = "${WORKDIR}/${BPN}"
+
+inherit perlnative
 
 do_configure() {
     sed -i -e s:/usr/include:${STAGING_INCDIR}:g util/av7110_loadkeys/generate-keynames.sh
